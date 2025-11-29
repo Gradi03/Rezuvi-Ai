@@ -8,7 +8,7 @@ const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <header className="fixed inset-x-0 top-0 z-40">
+    <header className="fixed inset-x-0 top-0 z-40 bg-slate-950/80 backdrop-blur-xl border-b border-slate-900/60">
       <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
           <div className="h-8 w-8 rounded-2xl bg-brand-soft border border-brand/40 flex items-center justify-center group-hover:scale-110 transition">
