@@ -25,12 +25,14 @@ export default function CreateResumePage() {
   const [isGenerating, setIsGenerating] = useState(false);
   const previewRef = useRef<HTMLDivElement>(null);
 
+  // Compose the live resume object so the preview + PDF always have the newest inputs and AI data
   const resume: ResumeData = {
     ...formValues,
     theme,
     ai: aiSections
   };
 
+  // Call the /api/generate endpoint and hydrate the AI sections in the preview
   async function handleGenerate() {
     setIsGenerating(true);
     try {
@@ -73,9 +75,12 @@ export default function CreateResumePage() {
             </p>
           </div>
 
+          {/* Keep theme selection + download CTA always visible (even before generating) */}
           <div className="flex flex-wrap items-center gap-3">
             <ThemeTabs value={theme} onChange={setTheme} />
-            <PDFDownloadButton targetRef={previewRef} />
+            <div className="hidden md:block">
+              <PDFDownloadButton targetRef={previewRef} />
+            </div>
           </div>
         </div>
 
@@ -96,6 +101,9 @@ export default function CreateResumePage() {
             </div>
             <div className="mt-2">
               <ResumePreview resume={resume} ref={previewRef} />
+            </div>
+            <div className="md:hidden mt-4">
+              <PDFDownloadButton targetRef={previewRef} />
             </div>
           </div>
         </div>

@@ -17,6 +17,7 @@ export async function POST(req: Request) {
 
     const prompt = buildResumePrompt(body);
 
+    // Hit GPT-5 mini with the structured prompt and let it return resume sections
     const completion = await client.chat.completions.create({
       model: "gpt-5-mini",
       messages: [
@@ -29,6 +30,7 @@ export async function POST(req: Request) {
 
     const text = completion.choices[0]?.message?.content ?? "";
 
+    // We expect clean JSON, but a defensive parser keeps the UI responsive
     let parsed: ResumeAISections | null = null;
     try {
       parsed = JSON.parse(text) as ResumeAISections;

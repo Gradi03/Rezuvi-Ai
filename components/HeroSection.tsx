@@ -40,7 +40,7 @@ const HeroSection = () => {
         </div>
 
         <p className="text-[11px] text-slate-400">
-          Powered by modern AI. You stay in control – edit everything before you download.
+          You stay in control – edit everything before you download.
         </p>
       </motion.div>
 

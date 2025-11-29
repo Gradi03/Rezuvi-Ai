@@ -14,6 +14,7 @@ interface Props {
 const ResumeForm: React.FC<Props> = ({ initialValues, onChange, onGenerate, isGenerating }) => {
   const [local, setLocal] = useState<ResumeFormValues>(initialValues);
 
+  // Mirror every input locally so the preview updates instantly and the parent receives the full object
   function update<K extends keyof ResumeFormValues>(key: K, value: ResumeFormValues[K]) {
     const next = { ...local, [key]: value };
     setLocal(next);

@@ -29,7 +29,7 @@ const PDFDownloadButton: React.FC<Props> = ({ targetRef }) => {
       type="button"
       onClick={handleDownload}
       disabled={isDownloading}
-      className="px-4 py-2 rounded-full border border-slate-700 text-xs md:text-sm text-slate-100 hover:bg-slate-900/60 transition disabled:opacity-60 disabled:cursor-not-allowed"
+      className="px-4 py-2 rounded-full border border-slate-700 text-xs md:text-sm text-slate-100 hover:bg-slate-900/60 transition disabled:opacity-60 disabled:cursor-not-allowed min-w-[11rem] text-center bg-slate-900/70"
     >
       {isDownloading ? "Preparing..." : "Download as PDF"}
     </button>
