@@ -166,10 +166,11 @@ const ResumeForm: React.FC<Props> = ({ initialValues, onChange, onGenerate, isGe
 
       <div>
         <label className="block text-xs font-medium text-slate-200 mb-1">
-          Detailed AI instructions <span className="text-slate-400">(optional)</span>
+          Detailed AI instructions
         </label>
         <textarea
           rows={3}
+          required
           value={local.customInstructions || ""}
           onChange={(e) => update("customInstructions", e.target.value)}
           placeholder="Example: highlight leadership in robotics club, mention award in 2024, emphasize bilingual support skills..."
